@@ -1,63 +1,26 @@
-# Merge Sort
-# Sorted()
-list1 = [2,5,6,7,8]
-list2 = [1,4,3,9,10]
-print("Result:",sorted(list1+list2))
+#  print the list element which are greater than neighbors of "N" list
+# # input :
+# # 10
+# # 11,21,34,10.9,7,8,6,5,15
+# # output:
+# # 34,8
 
 
-#Method 2
-list1.extend(list2)
-for i in sorted(list1):
-    print(i,end=" ")
-
-# method 3
-
-list1 = [2, 5, 6, 7, 8]
-list2 = [1, 4, 3, 9, 10]
-
-result = []
-i = j = k = 0
-
-while i < len(list1) and j < len(list2):
-    if list1[i] <= list2[j]:
-        result.append(list1[i])
-        i += 1
-    else:
-        result.append(list2[j])
-        j += 1
-
-# Append the remaining elements from both lists, if any
-result.extend(list1[i:])
-result.extend(list2[j:])
-
-print(result)
+def find_elements_greater_than_neighbors(nums):
+    result = []
+    
+    for i in range(1, len(nums) - 1):
+        if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
+            result.append(nums[i])
+    
+    return result
 
 
-#Method 4
-list1 = [2, 5, 6, 7, 8]
-list2 = [1, 4, 3, 9, 10]
+input_str = input("Enter a list of numbers separated by commas: ")
+num_list = [float(num) for num in input_str.split(',')]
 
-result = []
-i = j = 0
+# Find and print elements greater than neighbors
+greater_elements = find_elements_greater_than_neighbors(num_list)
+output_str = ",".join(str(num) for num in greater_elements)
+print("Output:", output_str)
 
-while i < len(list1) and j < len(list2):
-    if list1[i] <= list2[j]:
-        result.append(list1[i])
-        i += 1
-    else:
-        result.append(list2[j])
-        j += 1
-
-Append the remaining elements from both lists, if any
-while i < len(list1):
-    result.append(list1[i])
-    i += 1
-
-while j < len(list2):
-    result.append(list2[j])
-    j += 1
-
-print(result)
-
-
- 
