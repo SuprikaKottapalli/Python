@@ -1,17 +1,30 @@
-#Find the phn num using empo
-# there is a db Stored in a dictionay as given below
-# emp_db = {1234:[Anish,'9876543210','Anish@gmail.com',9000]
-# 1234:[Abc,'9876543211','Abc@gmail.com',7500]
-# 1234:[Def,'9876543212','Def@gmail.com',8000]
-# 1234:[Ghi,'9876543213','Ghi@gmail.com',9999]}
+# # Find the name of given n list of names contains lenght>5 no of vowels in their name
+# 6 
+# name1 name 2 nmae3 name 4 nmae5 name6
+
+# def listStarts(name):
+#     vowels = 'a e i o u'
+#     if count(vowels) in name > 5 :
+#         return name
+#         # print(name[1])
+#     # return name[ ] == 'a','e','i','o','u'
+# name = list(map(str,input().split(',')))
+# result = map(listStarts,name)
+# print(list(result))
 
 
-emp_id = int(input("Enter your Employee ID: "))
-DataBase = {1234:['Anish','9876543210','Anish@gmail.com',9000],
-            1235:['Abc','9876543211','Abc@gmail.com',7500],
-            1236:['Def','9876543212','Def@gmail.com',8000],
-            1237:['Ghi','9876543213','Ghi@gmail.com',9999]}
-if emp_id in DataBase:  
-    print(DataBase[emp_id][1])
-else:
-    print("Invaild Mobile num! Check again and try")
+def count_vowels(name):
+    vowels = 'aeiou'
+    count = 0
+    for char in name:
+        if char.lower() in vowels:
+            count += 1
+    return count
+
+def filter_names(name):
+    return len(name) > 5 and count_vowels(name) > 5
+
+input_names = input().split()
+
+filtered_result = list(filter(filter_names, input_names))
+print(filtered_result)
