@@ -1,0 +1,19 @@
+OOPS: object-oriented programming
+it is a bottom-up approach used to increase the productivity 
+it increases the code reusability
+more security
+complex application development
+features:
+1) class = blueprint
+2)object = instance of class
+2)encapsulation = binding data members and member function as a single unit
+5)polymorphism = many forms
+6)inheritance = acquiring properties and features from another class
+
+-class is defined with the 'class' keyword
+-class can contain variables and method
+var can be private, protected, instance, static, class method
+class may contain body/pass when no body
+there are types of methods like spl and normal method 
+SPL meth is defined with prefix and suffixed with "__"(double underscore) eg: __abcd__(..)
+spl methods are invoked automatically at the time of object creation i.e. __init__(self)

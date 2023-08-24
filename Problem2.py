@@ -1,30 +1,32 @@
-# # Find the name of given n list of names contains lenght>5 no of vowels in their name
-# 6 
-# name1 name 2 nmae3 name 4 nmae5 name6
+#write a program to move all vowels to the left of string Note the occurance order 
+def move_vowels_to_left(input_string):
+    vowels = "aeiouAEIOU"
+    vowel_count = 0
+    result = list(input_string)
 
-# def listStarts(name):
-#     vowels = 'a e i o u'
-#     if count(vowels) in name > 5 :
-#         return name
-#         # print(name[1])
-#     # return name[ ] == 'a','e','i','o','u'
-# name = list(map(str,input().split(',')))
-# result = map(listStarts,name)
-# print(list(result))
+    # Count the number of vowels
+    for char in result:
+        if char in vowels:
+            vowel_count += 1
 
+    # Move vowels to the left
+    i = 0
+    j = vowel_count
+    while j < len(result):
+        if result[i] in vowels:
+            i += 1
+            j += 1
+        elif result[j] in vowels:
+            result[i], result[j] = result[j], result[i]
+            i += 1
+            j += 1
+        else:
+            i += 1
+            j += 1
 
-def count_vowels(name):
-    vowels = 'aeiou'
-    count = 0
-    for char in name:
-        if char.lower() in vowels:
-            count += 1
-    return count
+    return "".join(result)
 
-def filter_names(name):
-    return len(name) > 5 and count_vowels(name) > 5
-
-input_names = input().split()
-
-filtered_result = list(filter(filter_names, input_names))
-print(filtered_result)
+# Input string
+input_str = input("Enter a string: ")
+result_str = move_vowels_to_left(input_str)
+print("Modified string:", result_str)
