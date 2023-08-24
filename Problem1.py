@@ -28,4 +28,3 @@ for num in result:
     print(num, end=' ')
 
 
-#write a program to move all vowels to the left of string Note the occurance order 
